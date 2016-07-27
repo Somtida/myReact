@@ -1,11 +1,11 @@
 var Welcome = React.createClass({
   render: function(){
-    let message = this.props.message;
+    let {greeting, info} = this.props;
     console.log('this.props: ', this.props);
     return (
       <div>
-        <h1>{message}</h1>
-        <p>Let's count stuff!</p>
+        <h1>{greeting}</h1>
+        <p>{info}</p>
       </div>
     )
   }
@@ -22,7 +22,7 @@ var Counter = React.createClass({
       <div>
         <h3>Counter {this.props.num}: {this.state.count}</h3>
         <button className="btn btn-success" onClick={() => this.setState({count: this.state.count+1})}>+</button>
-      <button className="btn btn-warning" onClick={() => this.setState({count: this.state.count-1})}>-</button>
+        <button className="btn btn-warning" onClick={() => this.setState({count: this.state.count-1})}>-</button>
       </div>
     )
 
@@ -127,12 +127,15 @@ var Root = React.createClass({
 
   render: function(){
     // console.log(this.state)
-    let message = "hello world"
+    let message = {
+      greeting: "hello world",
+      info: "Let's count stuff"
+    }
     let num = 0
 
     return(
     <div>
-      <Welcome message={message}/>
+      <Welcome {...message}/>
       <Counter num={++num}/>
       <Counter num={++num}/>
       <Counter num={++num}/>
