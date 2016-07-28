@@ -123,7 +123,7 @@ var Root = React.createClass({
     this.setState({ message: this.state.message.concat(newMessage)})
   },
   deleteMessage: function(id){
-    console.log('id: ',id);
+    console.log('delete id: ',id);
     this.setState({message: this.state.message.filter(message => message.id != id)})
   },
   // addCount: function(event){
